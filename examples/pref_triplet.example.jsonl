@@ -1,0 +1,1 @@
+{"id":"pref-0001","images":["pic/sample-0001.png"],"messages":[{"role":"user","content":"<image>\nDescribe fracture count, location, and morphology."}],"chosen":"Fracture count: 1; location: upper interval; morphology: conductive fracture.","rejected":"No fracture is visible."}

@@ -1,0 +1,29 @@
+{
+  "experiment": "E3",
+  "model": "Qwen/Qwen3.5-4B",
+  "method": "DAPT + LoRA-SFT + SimPO + Frac-VCD",
+  "frac_vcd": {
+    "alpha": 1.0,
+    "temperature": 0.2,
+    "perturbation": "blur",
+    "max_new_tokens": 512
+  },
+  "stages": {
+    "infer": {
+      "command": "script",
+      "script": "scripts/infer_frac_vcd.py",
+      "args": {
+        "model": "Qwen/Qwen3.5-4B",
+        "adapter": "${latest:outputs/checkpoints/e2/simpo}",
+        "input": "outputs/data/eval_test.jsonl",
+        "output": "outputs/predictions/e3_frac_vcd_predictions.jsonl",
+        "alpha": 1.0,
+        "temperature": 0.2,
+        "perturbation": "blur",
+        "max-new-tokens": 512,
+        "device": "cuda",
+        "resume": true
+      }
+    }
+  }
+}

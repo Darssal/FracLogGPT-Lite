@@ -1,0 +1,76 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Virtual environments and local dependencies
+.venv/
+.venv*/
+venv/
+env/
+node_modules/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Raw local data and generated artifacts
+/data/
+/pic/*
+!/pic/.gitkeep
+/sft/*
+!/sft/.gitkeep
+/rlhf_data/*
+!/rlhf_data/.gitkeep
+/outputs/*
+!/outputs/.gitkeep
+/reports/*
+!/reports/.gitkeep
+/third_party/*
+!/third_party/.gitkeep
+/models/
+/model_cache/
+/hf_cache/
+/wandb/
+/runs/
+/lightning_logs/
+
+# Model weights and checkpoints
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+adapter_model.*
+
+# Generated report packages
+*.docx
+*.pdf
+*.xlsx
+*.xls
+*.zip
+*.7z
+*.tar
+*.tar.gz
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.sqlite
+*.sqlite3
+*.db
+~$*
+.DS_Store
+Thumbs.db

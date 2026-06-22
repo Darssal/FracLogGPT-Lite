@@ -1,0 +1,107 @@
+{
+  "experiment": "E0",
+  "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+  "method": "DAPT + LoRA-SFT + DPO baseline",
+  "notes": [
+    "If a local FracLogGPT checkpoint or prediction file exists, pass it to inference/evaluation directly.",
+    "This config provides reproducible ms-swift commands when no baseline artifact is available."
+  ],
+  "stages": {
+    "dapt": {
+      "command": "pt",
+      "args": {
+        "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+        "use_hf": true,
+        "tuner_type": "lora",
+        "dataset": "outputs/data/dapt_train.jsonl",
+        "torch_dtype": "float16",
+        "learning_rate": "1e-4",
+        "num_train_epochs": 3,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "lora_rank": 8,
+        "lora_alpha": 32,
+        "target_modules": "all-linear",
+        "freeze_vit": true,
+        "freeze_aligner": true,
+        "eval_steps": 500,
+        "save_steps": 50,
+        "save_total_limit": 2,
+        "logging_steps": 5,
+        "max_length": 1024,
+        "output_dir": "outputs/checkpoints/e0/dapt"
+      }
+    },
+    "sft": {
+      "command": "sft",
+      "args": {
+        "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+        "use_hf": true,
+        "adapters": "${checkpoint:dapt}",
+        "tuner_type": "lora",
+        "dataset": "outputs/data/sft_train.jsonl",
+        "val_dataset": "outputs/data/sft_val.jsonl",
+        "torch_dtype": "float16",
+        "learning_rate": "1e-4",
+        "max_steps": 5000,
+        "per_device_train_batch_size": 1,
+        "per_device_eval_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "lora_rank": 8,
+        "lora_alpha": 32,
+        "target_modules": "all-linear",
+        "freeze_vit": true,
+        "freeze_aligner": true,
+        "eval_steps": 500,
+        "save_steps": 50,
+        "save_total_limit": 2,
+        "logging_steps": 5,
+        "max_length": 2048,
+        "output_dir": "outputs/checkpoints/e0/sft"
+      }
+    },
+    "rlhf": {
+      "command": "rlhf",
+      "args": {
+        "rlhf_type": "dpo",
+        "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+        "use_hf": true,
+        "adapters": "${checkpoint:sft}",
+        "ref_adapters": "${checkpoint:sft}",
+        "tuner_type": "lora",
+        "dataset": "outputs/data/pref_all.jsonl",
+        "torch_dtype": "float16",
+        "learning_rate": "1e-4",
+        "num_train_epochs": 60,
+        "per_device_train_batch_size": 1,
+        "per_device_eval_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "lora_rank": 8,
+        "lora_alpha": 32,
+        "target_modules": "all-linear",
+        "freeze_vit": true,
+        "freeze_aligner": true,
+        "beta": 0.1,
+        "eval_steps": 500,
+        "save_steps": 50,
+        "save_total_limit": 2,
+        "logging_steps": 5,
+        "max_length": 2048,
+        "output_dir": "outputs/checkpoints/e0/dpo"
+      }
+    },
+    "infer": {
+      "command": "script",
+      "script": "scripts/infer_transformers.py",
+      "args": {
+        "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+        "adapter": "${checkpoint:rlhf}",
+        "input": "outputs/data/eval_test.jsonl",
+        "output": "outputs/predictions/e0_predictions.jsonl",
+        "max-new-tokens": 512,
+        "device": "cuda",
+        "torch-dtype": "float16"
+      }
+    }
+  }
+}

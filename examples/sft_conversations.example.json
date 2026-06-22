@@ -1,0 +1,11 @@
+[
+  {
+    "id": "sample-0001",
+    "images": ["pic/sample-0001.png"],
+    "messages": [
+      {"role": "system", "content": "You are a fracture interpretation assistant."},
+      {"role": "user", "content": "<image>\nDescribe fracture count, location, and morphology."},
+      {"role": "assistant", "content": "Fracture count: 1; location: upper interval; morphology: conductive fracture."}
+    ]
+  }
+]

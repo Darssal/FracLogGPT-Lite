@@ -1,0 +1,14 @@
+# Core data utilities
+pandas
+openpyxl
+pillow
+
+# Model inference and adapters. Install CUDA-specific torch builds per your GPU/CUDA stack.
+torch
+transformers>=4.57,<5.11
+accelerate
+peft>=0.11,<0.20
+qwen-vl-utils
+
+# Training framework. The project also clones ms-swift into third_party for version capture.
+ms-swift>=4.3,<4.5
