@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title description">
+  <title id="title">FracLogGPT-Lite — Multimodal fracture interpretation</title>
+  <desc id="description">A dark project banner with a five-stage workflow: data, adapt, align, decode, and evaluate. Mint and cyan accents connect the stages.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1200" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D1723"/>
+      <stop offset="1" stop-color="#101F2B"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="56" y1="224" x2="1144" y2="224" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#88EED0"/>
+      <stop offset="1" stop-color="#6DCDE8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="300" rx="20" fill="url(#background)"/>
+  <rect x=".5" y=".5" width="1199" height="299" rx="19.5" fill="none" stroke="#304450"/>
+  <path d="M56 46H88" stroke="#88EED0" stroke-width="3" stroke-linecap="round"/>
+  <text x="102" y="51" fill="#9CB4C3" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="2.5">PROJECT / FRACLOGGPT-LITE</text>
+  <text x="56" y="119" fill="#EFF6F8" font-family="Arial, Helvetica, sans-serif" font-size="51" font-weight="700" letter-spacing="-1.8">FracLogGPT-Lite</text>
+  <text x="58" y="157" fill="#BED0DA" font-family="Arial, Helvetica, sans-serif" font-size="23">Multimodal fracture interpretation</text>
+  <g fill="none" stroke="#304C5B" stroke-width="1.25" stroke-linejoin="round">
+    <path d="M984 45L1026 69L1068 45L1110 69V117L1068 141L1026 117L984 141Z"/>
+    <path d="M984 45V93L1026 117V69M984 93L1026 69M1068 45V93L1110 117M1026 117L1068 93L1110 69"/>
+  </g>
+  <path d="M1026 69L1068 93L1110 69" fill="none" stroke="#88EED0" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle cx="1068" cy="93" r="3" fill="#88EED0"/>
+  <path d="M56 189H1144" stroke="#304450"/>
+  <g fill="#132633" stroke="#365361">
+    <rect x="56" y="208" width="184" height="54" rx="8"/>
+    <rect x="282" y="208" width="184" height="54" rx="8"/>
+    <rect x="508" y="208" width="184" height="54" rx="8"/>
+    <rect x="734" y="208" width="184" height="54" rx="8"/>
+    <rect x="960" y="208" width="184" height="54" rx="8"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#83B8BD">
+    <text x="72" y="240">01</text>
+    <text x="298" y="240">02</text>
+    <text x="524" y="240">03</text>
+    <text x="750" y="240">04</text>
+    <text x="976" y="240">05</text>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="1.8" fill="#E4F4F4" text-anchor="middle">
+    <text x="155" y="241">DATA</text>
+    <text x="381" y="241">ADAPT</text>
+    <text x="607" y="241">ALIGN</text>
+    <text x="833" y="241">DECODE</text>
+    <text x="1059" y="241">EVALUATE</text>
+  </g>
+  <g fill="none" stroke="url(#accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M250 235H272M266 230L272 235L266 240"/>
+    <path d="M476 235H498M492 230L498 235L492 240"/>
+    <path d="M702 235H724M718 230L724 235L718 240"/>
+    <path d="M928 235H950M944 230L950 235L944 240"/>
+  </g>
+</svg>
